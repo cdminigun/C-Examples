@@ -1,0 +1,11 @@
+#! /bin/csh -f
+set INCLUDE = /Users/cdminigun/Documents/cs2123/Recitation Programs/doege_chris-recitation5/booklib
+set CSLIB = $INCLUDE/cslib.a
+set LIBRARIES = ($CSLIB -lm)
+foreach x ($*)
+  if ("x$x" == "x-c") then
+    set LIBRARIES = ""
+    break
+  endif
+end
+gcc -g -I$INCLUDE $* $LIBRARIES
