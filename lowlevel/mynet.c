@@ -60,3 +60,4 @@ int main(){
 	close(fd[child_process][0]);
 	exit(0);
 	return 0;
+}
