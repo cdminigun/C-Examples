@@ -10,10 +10,15 @@ Another way that this could be tackled is by utilizing a tool called ltrace whic
 
 ###Sample output of ltrace:
 ltrace ./newphonewhodis_elf_32
+
 __libc_start_main(0x40072d, 1, 0x7fff706da338, 0x400840 <unfinished ...>
-__isoc99_scanf(0x4008d6, 0x7fff706da230, 87, 0aaaaaaaaaaaaa
-)               = 1
+
+__isoc99_scanf(0x4008d6, 0x7fff706da230, 87, 0aaaaaaaaaaaaa)               = 1
+
 strlen("aaaaaaaaaaaaa")                                       = 13
+
 strcmp("aaaaaaaaaaaaa", "oooooianiakaW")                      = -14
+
 printf("Wrong numba.")                                        = 12
+
 Wrong numba.+++ exited (status 0) +++
