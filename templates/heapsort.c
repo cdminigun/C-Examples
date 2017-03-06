@@ -16,7 +16,6 @@ void heapSort(unsigned long ulTotalHeapSize, float fHeapArray[])
 
     // A heap of 0 and 1 trivially is sorted.
     if (ulTotalHeapSize < 2) return;
-    
     // Set the values of hiring and retiring.
     ulIndexHiring=(ulTotalHeapSize >> 1)+1;
     ulIndexRetire = ulTotalHeapSize;
