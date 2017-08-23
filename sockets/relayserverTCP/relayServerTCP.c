@@ -36,20 +36,21 @@ int main(int argc, char *argv[])
             	/* Accepts an incoming connection and sends the same informatin back */
         	connfd = accept(listenfd, (struct sockaddr*)NULL, NULL);
    		if(connfd > 0 ){
-			if(!(pid=fork())){
-				if(!fork()){
+			if((pid = fork())){
+				if(pid == 0){
+                        close(listenfd);
+                        close(connfd);
+                        break;
+                }else{
 					close(listenfd);
 					recv(connfd, buffer, BUFFSIZE, 0);
    					send(connfd, buffer, BUFFSIZE, 0);
     	                    		printf("%s", buffer);
 					exit(0);
 				}
-				else{
-					close(listenfd);
-					exit(0);
-				}
 			}
 		}
 		close(connfd);
+        exit(0);
       }
 }
